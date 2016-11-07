@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Salespro</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+</head>
+<body>
+	<div id="page-wrapper">
+		<div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
+
+			<!-- Alternative Sidebar -->
+			<div id="sidebar-alt" tabindex="-1" aria-hidden="true">
+				<!-- Toggle Alternative Sidebar Button (visible only in static layout) -->
+				<a href="javascript:void(0)" id="sidebar-alt-close" onclick="App.sidebar('toggle-sidebar-alt');"><i class="fa fa-times"></i></a>
+
+				<!-- Wrapper for scrolling functionality -->
+				<div id="sidebar-scroll-alt">
+					<!-- Sidebar Content -->
+					<div class="sidebar-content">
+						<!-- Sidebar Section -->
+						<div class="sidebar-section">
+							<h2 class="text-light">Header</h2>
+							<p>Section content..</p>
+						</div>
+						<!-- END Sidebar Section -->
+					</div>
+					<!-- END Sidebar Content -->
+				</div>
+				<!-- END Wrapper for scrolling functionality -->
+			</div>
+			<!-- END Alternative Sidebar -->
+
+			<%= render "layouts/partials/sidebar" %>
+
+			<!-- Main Container -->
+			<div id="main-container">
+				<!-- Header -->
+				<!-- In the PHP version you can set the following options from inc/config file -->
+                    <!--
+                        Available header.navbar classes:
+
+                        'navbar-default'            for the default light header
+                        'navbar-inverse'            for an alternative dark header
+
+                        'navbar-fixed-top'          for a top fixed header (fixed main sidebar with scroll will be auto initialized, functionality can be found in js/app.js - handleSidebar())
+                            'header-fixed-top'      has to be added on #page-container only if the class 'navbar-fixed-top' was added
+
+                        'navbar-fixed-bottom'       for a bottom fixed header (fixed main sidebar with scroll will be auto initialized, functionality can be found in js/app.js - handleSidebar()))
+                            'header-fixed-bottom'   has to be added on #page-container only if the class 'navbar-fixed-bottom' was added
+                      -->
+                      <header class="navbar navbar-inverse navbar-fixed-top">
+                       <!-- Left Header Navigation -->
+                       <ul class="nav navbar-nav-custom">
+                            <!-- Main Sidebar Toggle Button -->
+                            <li>
+                                 <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar');this.blur();">
+                                      <i class="fa fa-ellipsis-v fa-fw animation-fadeInRight" id="sidebar-toggle-mini"></i>
+                                      <i class="fa fa-bars fa-fw animation-fadeInRight" id="sidebar-toggle-full"></i>
+                                </a>
+                          </li>
+                          <!-- END Main Sidebar Toggle Button -->
+
+                          <!-- Header Link -->
+                          <li class="hidden-xs animation-fadeInQuick">
+                           <a href=""><strong>DASHBOARD</strong></a>
+                     </li>
+                     <!-- END Header Link -->
+               </ul>
+               <!-- END Left Header Navigation -->
+
+               <!-- Right Header Navigation -->
+               <ul class="nav navbar-nav-custom pull-right">
+                <!-- Search Form -->
+                <li>
+                     <form action="index.html" method="post" class="navbar-form-custom" role="search">
+                          <input type="text" id="top-search" name="top-search" class="form-control" placeholder="Search..">
+                    </form>
+              </li>
+              <!-- END Search Form -->
+
+              <!-- Alternative Sidebar Toggle Button -->
+              <li>
+               <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar-alt');this.blur();">
+                    <i class="gi gi-settings"></i>
+              </a>
+        </li>
+        <!-- END Alternative Sidebar Toggle Button -->
+
+        <!-- User Dropdown -->
+        <li class="dropdown">
+         <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+              <%= image_tag("avatar.jpg", alt: "avatar") %>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right">
+              <li class="dropdown-header">
+                   <strong>ADMINISTRATOR</strong>
+             </li>
+             <li>
+                  <%= link_to "http://localhost:3000" do %>
+                  <i class="fa fa-pencil-square fa-fw pull-right"></i>
+                  Profile
+                  <% end %>
+            </li>
+            <li>
+             <a href="javascript:void(0)">
+                  <i class="fa fa-picture-o fa-fw pull-right"></i>
+                  Link #3
+            </a>
+      </li>
+      <li class="divider"><li>
+       <li>
+            <a href="javascript:void(0)">
+                 <i class="gi gi-settings fa-fw pull-right"></i>
+                 Link #1
+           </a>
+     </li>
+     <li>
+      <a href="javascript:void(0)">
+           <i class="gi gi-lock fa-fw pull-right"></i>
+           Link #2
+     </a>
+</li>
+</ul>
+</li>
+<!-- END User Dropdown -->
+</ul>
+<!-- END Right Header Navigation -->
+</header>
+<!-- END Header -->
+
+<!-- Page content -->
+<div id="page-content">
+    <!-- Page Header -->
+    <div class="content-header">
+         <div class="row">
+              <div class="col-sm-6">
+                   <div class="header-section">
+                        <h1>Page Title</h1>
+                  </div>
+            </div>
+            <div class="col-sm-6 hidden-xs">
+             <div class="header-section">
+                  <ul class="breadcrumb breadcrumb-top">
+                       <li>Category</li>
+                       <li><a href="">Page</a></li>
+                 </ul>
+           </div>
+     </div>
+</div>
+</div>
+<!-- END Page Header -->
+
+<!-- Example Block -->
+<div class="block">
+   <!-- Example Title -->
+   <div class="block-title">
+        <div class="block-options pull-right">
+             <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default" data-toggle="tooltip" title="Settings"><i class="fa fa-cog"></i></a>
+             <div class="btn-group">
+                  <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Options">
+                       <i class="fa fa-chevron-down"></i>
+                 </a>
+                 <ul class="dropdown-menu dropdown-menu-right">
+                       <li>
+                            <a href="javascript:void(0)">
+                                 <i class="fa fa-pencil pull-right"></i>
+                                 Edit
+                           </a>
+                     </li>
+                     <li>
+                      <a href="javascript:void(0)">
+                           <i class="fa fa-refresh pull-right"></i>
+                           Update
+                     </a>
+               </li>
+               <li class="divider"></li>
+               <li>
+                <a href="javascript:void(0)">
+                     <i class="fa fa-trash-o fa-fw pull-right"></i>
+                     Delete
+               </a>
+         </li>
+   </ul>
+</div>
+</div>
+<h2>Block</h2>
+<% if user_signed_in? %>
+      Welcome <%= current_user.email %> |
+      <%= link_to "Account Settings", edit_user_registration_path %> |
+      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+<% else %>
+      <%= link_to "Login", new_user_session_path %>
+      <%= link_to "Register", new_user_registration_path %>
+      <% end %>
+
+</div>
+<!-- END Example Title -->
+
+<!-- Example Content -->
+<p><%= yield %></p>
+<!-- END Example Content -->
+</div>
+<!-- END Example Block -->
+</div>
+<!-- END Page Content -->
+</div>
+<!-- END Main Container -->
+</div>
+<!-- END Page Container -->
+</div>
+<!-- END Page Wrapper -->
+
+</body>
+</html>
