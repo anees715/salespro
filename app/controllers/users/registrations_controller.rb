@@ -74,7 +74,7 @@ def new
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) { |u|
-      u.permit(:email, :password, :password_confirmation, :user_profile_attributes => :first_name)
+      u.permit(:email, :password, :password_confirmation, :user_profile_attributes => [:first_name, :last_name, :business_name, :business_category_id, :website, :address, :phone_number, :office_number])
     }
   end
  

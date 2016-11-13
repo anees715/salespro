@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'dashboard/check_referral_code'
   resources :dashboard
   resources :user_profiles
+  resources :customers
   root 'dashboard#index'
 
   devise_for :users, controllers: {registrations: 'users/registrations'}

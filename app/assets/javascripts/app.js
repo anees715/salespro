@@ -8,6 +8,16 @@
  *  sure to remove its initialization from uiInit().
  */
 
+$(document).ready(function(){
+$('#source').on('change', function () {
+    if(this.value == "2"){
+        $("#referral-code").show();
+    } else {
+        $("#referral-code").hide();
+    }
+});
+});
+ 
 var App = function() {
 
     /* Helper variables - set in uiInit() */
@@ -592,6 +602,7 @@ var App = function() {
             handlePrint(); // Print functionality
         }
     };
+	
 }();
 
 /* Initialize App when page loads */
